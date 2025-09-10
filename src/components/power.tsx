@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 // SVG
 import Arrow_Svg from "@/assets/images/place/place_arrow.svg"
@@ -15,6 +17,11 @@ import Qonto_Svg from "@/assets/images/power/qonto.svg"
 
 // Images
 import PowerBanner from "@/assets/images/power/banner.jpg"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Autoplay } from "swiper/modules"
+
+// Import Swiper styles
+import "swiper/css"
 
 const PowerSection = () => {
     return (
@@ -34,17 +41,46 @@ const PowerSection = () => {
                         Voir le site
                         <Image src={Arrow_Svg} alt="Arrow" width={20} height={20} className="w-[20px] h-[20px]" />
                     </button>
-                    <div className="w-full md:mt-[72px] mt-8 flex justify-between items-center">
-                        {[
-                            { title: "+10 000", description: "Clients" },
-                            { title: "319", description: "Évènements" },
-                            { title: "37%", description: "“Au vert” proche de paris" }
-                        ].map((item, index) => (
-                            <div className="flex flex-col" key={index}>
-                                <h2 className="uppercase font-nichrome font-bold text-[44px] text-power-secondary">{item.title}</h2>
-                                <p className="font-general font-normal text-[20px] text-power-secondary">{item.description}</p>
+                    <div className="w-full md:mt-[72px] mt-8">
+                        {/* Desktop: 3 in a row, Mobile: 2 in first row, 1 centered in second row */}
+                        <div className="hidden md:flex flex-nowrap justify-between items-center gap-y-8">
+                            {[
+                                { title: "+10 000", description: "Clients" },
+                                { title: "319", description: "Évènements" },
+                                { title: "37%", description: "“Au vert” proche de paris" }
+                            ].map((item, index) => (
+                                <div
+                                    className="flex flex-col flex-1 min-w-[180px] max-w-none"
+                                    key={index}
+                                >
+                                    <h2 className="uppercase font-nichrome font-bold text-[44px] text-power-secondary">{item.title}</h2>
+                                    <p className="font-general font-normal text-[20px] text-power-secondary">{item.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                        {/* Mobile: 2 in first row, 1 centered in second row */}
+                        <div className="flex flex-col md:hidden gap-y-8">
+                            <div className="flex flex-row justify-between gap-x-4">
+                                {[
+                                    { title: "+10 000", description: "Clients" },
+                                    { title: "319", description: "Évènements" }
+                                ].map((item, index) => (
+                                    <div
+                                        className="flex flex-col flex-1 min-w-[48%]"
+                                        key={index}
+                                    >
+                                        <h2 className="uppercase font-nichrome font-bold text-[44px] text-power-secondary md:text-start text-center">{item.title}</h2>
+                                        <p className="font-general font-normal text-[20px] text-power-secondary md:text-start text-center">{item.description}</p>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                            <div className="flex justify-center">
+                                <div className="flex flex-col min-w-[180px] max-w-[80%] items-center">
+                                    <h2 className="uppercase font-nichrome font-bold text-[44px] text-power-secondary">37%</h2>
+                                    <p className="font-general font-normal text-[20px] text-power-secondary">“Au vert” proche de paris</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="w-full h-auto md:block hidden relative">
@@ -58,12 +94,41 @@ const PowerSection = () => {
                     </div>
                 </div>
             </div>
-            <div className="mt-6 flex flex-col justify-center">
-                <p className="text-[20px] font-general font-normal text-center">Tout n’est qu’une histoire de confiance.</p>
+            <div className="md:mt-16 mt-8 flex flex-col justify-center">
+                <p className="text-[20px] font-general font-normal text-center text-power-secondary">Tout n’est qu’une histoire de confiance.</p>
                 <div className="w-full my-6 flex justify-center items-center md:gap-[71px] gap-10">
-                    {[{ img: Airbnb_Svg, width: 103, height: 32 }, { img: Alan_Svg, width: 103, height: 21 }, { img: Doctolib_Svg, width: 98, height: 29 }, { img: Google_Svg, width: 62, height: 59 }, { img: Konbini_Svg, width: 90, height: 27 }, { img: Loreal_Svg, width: 90, height: 25 }, { img: Microsoft_Svg, width: 90, height: 30 }, { img: Netflix_Svg, width: 92, height: 25 }, { img: Qonto_Svg, width: 92, height: 25 }].map((item, index) => (
-                        <Image src={item.img} alt={`Logo ${index}`} key={index} width={item.width} height={item.height} className={`md:w-[${item.width}px] md:h-[${item.height}px] w-[90px] h-[25px] mx-4 object-contain`} />
-                    ))}
+                    <Swiper
+                        modules={[Autoplay]}
+                        spaceBetween={30}
+                        slidesPerView={3}
+                        breakpoints={{
+                            640: { slidesPerView: 3 },
+                            768: { slidesPerView: 5 },
+                            1024: { slidesPerView: 7 },
+                        }}
+                        loop={true}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        }}
+                        className="w-full"
+                    >
+                        {[{ img: Airbnb_Svg, width: 103, height: 32 }, { img: Alan_Svg, width: 103, height: 21 }, { img: Doctolib_Svg, width: 98, height: 29 }, { img: Google_Svg, width: 62, height: 59 }, { img: Konbini_Svg, width: 90, height: 27 }, { img: Loreal_Svg, width: 90, height: 25 }, { img: Microsoft_Svg, width: 90, height: 30 }, { img: Netflix_Svg, width: 92, height: 25 }, { img: Qonto_Svg, width: 92, height: 25 }].map((item, index) => (
+                            <SwiperSlide key={index} className="flex justify-center items-center">
+                                <Image
+                                    src={item.img}
+                                    alt={`Logo ${index}`}
+                                    width={item.width}
+                                    height={item.height}
+                                    className="w-[90px] h-[25px] md:w-auto md:h-auto mx-4 object-contain"
+                                    style={{
+                                        maxWidth: `${item.width}px`,
+                                        maxHeight: `${item.height}px`
+                                    }}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
             </div>
         </section >

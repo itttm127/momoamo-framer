@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${generalSans.variable} ${nichrome.variable} `}>
+      <body className={`${generalSans.variable} ${nichrome.variable}`}>
         {children}
       </body>
     </html>

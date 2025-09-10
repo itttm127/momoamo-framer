@@ -5,6 +5,8 @@ import VacationSection from "@/components/vacation";
 import HouseSection from "@/components/house";
 import PlaceSection from "@/components/place";
 import PowerSection from "@/components/power";
+import FAQSection from "@/components/faq";
+import FooterSection from "@/components/footer";
 
 const Home = () => {
   return (
@@ -42,6 +44,16 @@ const Home = () => {
       <div className="bg-power-main">
         {/* PowerSection */}
         <PowerSection />
+      </div>
+
+      <div className="bg-gray-green">
+        {/* FAQSection */}
+        <FAQSection />
+      </div>
+
+      <div className="bg-dark-green">
+        {/* FooterSection */}
+        <FooterSection />
       </div>
     </div>
   )
