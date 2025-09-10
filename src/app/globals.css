@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-green: #273A1F;
+  --color-lime-green: #DEFF4E;
+  --color-gray-green: #EEE5D7;
+  --color-black-green: #292222;
+  --color-offsite-main: #172749;
+  --color-offsite-secondary: #A0FFE8;
+  --color-house-main: #603030;
+  --color-house-secondary: #FF6E4E;
+  --color-power-main: #172749;
+  --color-power-secondary: #A0FFE8;
+}
+
+/* Custom font utilities */
+.font-nichrome {
+  font-family: var(--font-md-nichrome), system-ui, sans-serif;
+}
+
+.font-general {
+  font-family: var(--font-general-sans), system-ui, sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+
+  button,
+  a {
+    cursor: pointer;
+  }
+}
+
+section {
+  max-width: 1440px;
+}
+
+/* Swiper Progress Bar */
+.swiper-container {
+  width: 600px;
+  height: 200px;
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
