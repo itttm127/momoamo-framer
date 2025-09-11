@@ -47,7 +47,7 @@ export const useHeroAnimations = () => {
               opacity: 1,
               scale: 1,
               transformOrigin: "center center",
-              duration: 3,
+              duration: 1.5,
               ease: "back.out(1.7)",
             }
           );

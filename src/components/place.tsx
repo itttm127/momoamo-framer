@@ -1,4 +1,7 @@
+"use client"
+
 import Image from 'next/image';
+import { usePlaceAnimations } from '@/animations/scrollAnimations';
 import Button_Arrow_Svg from '@/assets/images/svgs/arrow_forward.svg';
 
 // Images
@@ -8,14 +11,16 @@ import Img3 from '@/assets/images/place/img3.jpg';
 import Img4 from '@/assets/images/place/img4.jpg';
 
 const PlaceSection = () => {
+    const { titleRef, descriptionRef, buttonRef, imagesRef, destinationsRef } = usePlaceAnimations();
+
     return (
         <section className="w-full mx-auto relative overflow-hidden md:py-[123px] py-[64px] md:px-0 px-4">
-            <h1 className="text-center text-black-green md:text-8xl text-[58px] font-nichrome font-bold tracking-normal">Plus qu’un lieu, un moment</h1>
-            <div className='flex justify-center items-center md:mt-10 mt-6'>
+            <h1 ref={titleRef} className="text-center text-black-green md:text-8xl text-[58px] font-nichrome font-bold tracking-normal">Plus qu'un lieu, un moment</h1>
+            <div ref={descriptionRef} className='flex justify-center items-center md:mt-10 mt-6'>
                 <p className="text-center text-black-green md:text-[40px] text-[24px] font-normal font-nichrome tracking-normal max-w-[915px] md:mt-[32px] mt-[24px]">Offrir à chaque équipe un lieu unique, pour vivre
                     une expérience collective qui allie proximité, confort et inspiration</p>
             </div>
-            <div className='flex justify-center items-center md:mt-10 mt-8'>
+            <div ref={buttonRef} className='flex justify-center items-center md:mt-10 mt-8'>
                 <button className="uppercase text-[#EEE5D7] bg-[#292222] font-bold font-nichrome md:text-[20px] text-[18px] md:w-[320px] w-full md:h-[56px] h-[48px] flex justify-center items-center gap-2 rounded">
                     RÉSERVER VOTRE OFFSITE
                     <Image src={Button_Arrow_Svg} alt="Arrow" width={20} height={20} className="w-[20px] h-[20px]" />
@@ -23,7 +28,7 @@ const PlaceSection = () => {
             </div>
 
             <div className='md:mt-[137px] mt-8'>
-                <div className='flex md:gap-8 gap-4 justify-center items-center'>
+                <div ref={imagesRef} className='flex md:gap-8 gap-4 justify-center items-center'>
                     <Image src={Img1} alt="Place" width={474} height={474} className='md:w-[474px] md:h-[474px] w-[165px] h-[165px] object-cover rounded' />
                     <Image src={Img2} alt="Place" width={474} height={711} className='md:w-[474px] md:h-[711px] w-[165px] h-[247px] object-cover rounded' />
                     <Image src={Img3} alt="Place" width={474} height={474} className='md:w-[474px] md:h-[474px] w-[165px] h-[165px] object-cover rounded' />
@@ -37,7 +42,7 @@ const PlaceSection = () => {
                         <h2 className="text-black-green font-nichrome font-bold md:text-[100px] text-[58px] uppercase leading-tight mb-6">
                             Destinations<br />à venir
                         </h2>
-                        <div className='md:mt-[49px] mt-8 w-full'>
+                        <div ref={destinationsRef} className='md:mt-[49px] mt-8 w-full'>
                             {
                                 [{ title: "Perche", description: "Oussoy-en-Gâtinais, loiret 45239", date: "2025" },
                                 { title: "Normandie", description: "soon", date: "2025" },
