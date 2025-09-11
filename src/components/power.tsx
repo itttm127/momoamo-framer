@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { usePowerAnimations } from "@/animations/scrollAnimations"
 // SVG
 import Arrow_Svg from "@/assets/images/place/place_arrow.svg"
 import PowerFramer from "@/assets/images/power/frame.svg"
@@ -24,10 +25,12 @@ import { Autoplay } from "swiper/modules"
 import "swiper/css"
 
 const PowerSection = () => {
+    const { leftContentRef, rightContentRef, statsRef, swiperRef } = usePowerAnimations();
+
     return (
         <section className="w-full mx-auto relative overflow-hidden md:py-[123px] py-[64px] md:px-0 px-4">
             <div className="w-full flex justify-between md:gap-14 gap-8">
-                <div className="w-full">
+                <div ref={leftContentRef} className="w-full">
                     <h1 className="text-power-secondary font-nichrome font-bold md:text-[100px] text-[58px] uppercase leading-tight mb-6">
                         Powered by <br />KYMONO®
                     </h1>
@@ -41,7 +44,7 @@ const PowerSection = () => {
                         Voir le site
                         <Image src={Arrow_Svg} alt="Arrow" width={20} height={20} className="w-[20px] h-[20px]" />
                     </button>
-                    <div className="w-full md:mt-[72px] mt-8">
+                    <div ref={statsRef} className="w-full md:mt-[72px] mt-8">
                         {/* Desktop: 3 in a row, Mobile: 2 in first row, 1 centered in second row */}
                         <div className="hidden md:flex flex-nowrap justify-between items-center gap-y-8">
                             {[
@@ -83,7 +86,7 @@ const PowerSection = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full h-auto md:block hidden relative">
+                <div ref={rightContentRef} className="w-full h-auto md:block hidden relative">
                     <Image src={PowerBanner.src} alt="Power Img" width={644} height={605} className="md:w-[644px] md:h-[605px] w-full h-auto md:block hidden" />
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 md:w-[644px] md:h-[605px]" />
@@ -96,7 +99,7 @@ const PowerSection = () => {
             </div>
             <div className="md:mt-16 mt-8 flex flex-col justify-center">
                 <p className="text-[20px] font-general font-normal text-center text-power-secondary">Tout n’est qu’une histoire de confiance.</p>
-                <div className="w-full my-6 flex justify-center items-center md:gap-[71px] gap-10">
+                <div ref={swiperRef} className="w-full my-6 flex justify-center items-center md:gap-[71px] gap-10">
                     <Swiper
                         modules={[Autoplay]}
                         spaceBetween={30}

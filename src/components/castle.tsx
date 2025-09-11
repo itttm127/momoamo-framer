@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
+import { useCastleAnimations } from "@/animations/scrollAnimations";
 
 import HanSwiper, { HanSwiperRef } from "./han-swiper";
 import Arrow_Svg from '@/assets/images/hero/arrow_forward.svg';
@@ -62,6 +63,7 @@ const features = [
 
 const CastleSection = () => {
     const hanSwiperRef = useRef<HanSwiperRef>(null);
+    const { titleRef, featuresRef, swiperRef } = useCastleAnimations();
 
     const handleNext = () => {
         hanSwiperRef.current?.handleNext();
@@ -73,11 +75,15 @@ const CastleSection = () => {
 
     return (
         <section className="w-full mx-auto relative overflow-hidden bg-gray-green md:py-[123px] py-[64px] md:px-0 px-4">
-            <h1 className="text-start text-black-green md:text-8xl text-[58px] font-nichrome font-bold tracking-normal">CHÂteau de COURTIGIS</h1>
-            <p className="text-start text-black-green md:text-[40px] text-[24px] font-normal font-nichrome tracking-normal max-w-[915px] md:mt-[32px] mt-[24px]">Le premier lieu MOMOAMO est un domaine situé à l’est de la forêt d’Orléans à moins d’1h20 de Paris et 15 minutes de la gare de Montargis.</p>
+            <div ref={titleRef}>
+                <h1 className="text-start text-black-green md:text-8xl text-[58px] font-nichrome font-bold tracking-normal">CHÂteau de COURTIGIS</h1>
+                <p className="text-start text-black-green md:text-[40px] text-[24px] font-normal font-nichrome tracking-normal max-w-[915px] md:mt-[32px] mt-[24px]">Le premier lieu MOMOAMO est un domaine situé à l'est de la forêt d'Orléans à moins d'1h20 de Paris et 15 minutes de la gare de Montargis.</p>
+            </div>
 
             {/* Swiper */}
-            <HanSwiper ref={hanSwiperRef} slides={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} />
+            <div ref={swiperRef}>
+                <HanSwiper ref={hanSwiperRef} slides={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} />
+            </div>
 
             <div className='md:mt-[49px] mt-[32px] flex justify-between'>
                 <div className='md:flex hidden justify-between max-w-28 w-28'>
@@ -112,7 +118,7 @@ const CastleSection = () => {
                 <h1 className="w-full text-start text-black-green font-nichrome font-bold md:text-[72px] text-[58px] mb-8 uppercase">
                     Les pièces, expériences & loisirs
                 </h1>
-                <div className="w-full grid md:grid-cols-5 grid-cols-2 gap-y-8 gap-x-6 mb-10">
+                <div ref={featuresRef} className="w-full grid md:grid-cols-5 grid-cols-2 gap-y-8 gap-x-6 mb-10">
                     {features.map((feature, index) => (
                         <div key={index} className="flex flex-col items-start gap-3 md:max-w-[200px] max-w-[150px]">
                             <Image src={feature.icon} alt={feature.title} width={40} height={40} className="w-[40px] h-[40px]" />

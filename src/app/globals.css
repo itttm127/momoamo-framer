@@ -151,3 +151,14 @@ section {
   font-weight: 300;
   line-height: 1.3;
 }
+
+/* Hero Letter Animation Styles */
+.letter_animation {
+  /* Initial state - no width and height */
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform-origin: center center;
+}
+

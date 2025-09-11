@@ -1,7 +1,7 @@
 "use client"
 
-
 import { useState } from "react";
+import { useFAQAnimations } from "@/animations/scrollAnimations";
 
 const paragraph = 'Lorem ipsum dolor sit amet consectetur. Ut tincidunt auctor vel arcu facilisis velit placerat. Nunc augue vulputate diam nibh at. Ultricies molestie augue consectetur augue tincidunt dui nunc egestas. Egestas risus faucibus iaculis lorem. Vitae cras quisque eget pellentesque pellentesque amet tellus scelerisque risus. Eros ut viverra fames etiam. Aliquet lacus non potenti sit. Sed consequat in id arcu ridiculus. Turpis quis mauris tellus mauris. Vulputate donec at amet purus viverra tellus sit. Dignissim dictum sit a fermentum eget sapien sed. Risus scelerisque malesuada lacus feugiat nunc vel imperdiet. At aenean maecenas hac elementum laoreet lorem pulvinar aliquet.';
 
@@ -29,13 +29,15 @@ const data = [
 ];
 
 const FAQSection = () => {
+    const { titleRef, accordionRef } = useFAQAnimations();
+
     return (
         <section className="w-full mx-auto relative overflow-hidden md:py-[123px] py-[64px] md:px-0 px-4">
             <div className="w-full flex md:flex-row flex-col gap-4 justify-between items-start">
-                <h1 className="text-faq-secondary font-nichrome font-bold md:text-[72px] text-[58px] uppercase leading-14">
+                <h1 ref={titleRef} className="text-faq-secondary font-nichrome font-bold md:text-[72px] text-[58px] uppercase leading-14">
                     FAQ
                 </h1>
-                <div className="">
+                <div ref={accordionRef} className="">
                     <ul className="accordion-list md:max-w-[915px] max-w-[358px]">
                         {data.map((item, key) => (
                             <li className={`accordion-list__item py-8 border-t border-[#312C2C] ${key === data.length - 1 ? 'border-b' : ''}`} key={key}>

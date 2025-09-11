@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
+import { useHouseAnimations } from "@/animations/scrollAnimations";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
@@ -50,6 +51,7 @@ const features = [
 
 const HouseSection = () => {
     const swiperRef = useRef<SwiperType | null>(null);
+    const { titleRef, swiperRef: swiperAnimRef, featuresRef, descriptionRef } = useHouseAnimations();
 
     const handleNext = () => {
         swiperRef.current?.slideNext();
@@ -62,9 +64,9 @@ const HouseSection = () => {
     return (
         <section className="w-full mx-auto relative overflow-hidden md:py-[123px] py-[64px] md:px-0 px-4">
             <div className="w-full flex justify-between items-end">
-                <div className="w-full">
+                <div ref={titleRef} className="w-full">
                     <h1 className="text-house-secondary font-nichrome font-bold md:text-[72px] text-[58px] uppercase leading-14">Une maison</h1>
-                    <h1 className="text-house-secondary font-nichrome font-bold md:text-[72px] text-[58px] uppercase md:leading-normal leading-14">momoamo c’est...</h1>
+                    <h1 className="text-house-secondary font-nichrome font-bold md:text-[72px] text-[58px] uppercase md:leading-normal leading-14">momoamo c'est...</h1>
                 </div>
                 {/* Navigation */}
                 <div className="w-28 h-8 md:flex hidden justify-between">
@@ -86,7 +88,7 @@ const HouseSection = () => {
             </div>
 
             {/* Slides */}
-            <div className="mt-12">
+            <div ref={swiperAnimRef} className="mt-12">
                 <Swiper
                     modules={[Navigation, Autoplay]}
                     navigation={{
@@ -155,14 +157,14 @@ const HouseSection = () => {
             </div>
 
             {/* Text */}
-            <div className="mt-12 flex justify-end">
+            <div ref={descriptionRef} className="mt-12 flex justify-end">
                 <div className="md:w-[915px] w-[358px]">
                     <h1 className="text-house-secondary font-nichrome font-bold md:text-[72px] text-[58px] uppercase leading-14 text-start">Le vrai savoir-faire</h1>
                     <h1 className="text-house-secondary font-nichrome font-bold md:text-[72px] text-[58px] uppercase md:leading-normal leading-14 text-start">de momoamo®</h1>
-                    <p className="text-house-secondary font-normal font-nichrome md:text-[40px] text-[26px] tracking-normal text-start leading-12">Ce n’est pas juste de proposer de belles maisons, mais de créer des parenthèses inspirantes pour les équipes, dans des lieux qui allient exception architecturale, confort hôtelier et expérience sur-mesure.</p>
+                    <p className="text-house-secondary font-normal font-nichrome md:text-[40px] text-[26px] tracking-normal text-start leading-12">Ce n'est pas juste de proposer de belles maisons, mais de créer des parenthèses inspirantes pour les équipes, dans des lieux qui allient exception architecturale, confort hôtelier et expérience sur-mesure.</p>
                 </div>
             </div>
-            <div className="md:mt-[76px] mt-8 grid md:grid-cols-4 grid-cols-1 gap-8">
+            <div ref={featuresRef} className="md:mt-[76px] mt-8 grid md:grid-cols-4 grid-cols-1 gap-8">
                 {features.map((feature, idx) => (
                     <div key={idx} className="flex flex-col items-start gap-4 w-[314px]">
                         <Image src={feature.icon} alt={feature.title} width={40} height={40} className="w-[40px] h-[40px]" />
