@@ -646,7 +646,7 @@ export const useVacationAnimations = () => {
       // Fade out animation for title and card wrappers
       tl.to(".trigger", {
         opacity: 0,
-        duration: 0.5,
+        duration: 0.3,
         ease: "power2.out"
       });
     });
