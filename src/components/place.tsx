@@ -9,6 +9,10 @@ import Img1 from '@/assets/images/place/img1.jpg';
 import Img2 from '@/assets/images/place/img2.jpg';
 import Img3 from '@/assets/images/place/img3.jpg';
 import Img4 from '@/assets/images/place/img4.jpg';
+import TableImg1 from '@/assets/images/place/tbl_img1.jpg';
+import TableImg2 from '@/assets/images/place/tbl_img2.jpg';
+import TableImg3 from '@/assets/images/place/tbl_img3.jpg';
+import TableImg4 from '@/assets/images/place/tbl_img4.jpg';
 
 const PlaceSection = () => {
     const { titleRef, descriptionRef, buttonRef, imagesRef, destinationsRef } = usePlaceAnimations();
@@ -27,8 +31,12 @@ const PlaceSection = () => {
                 </button>
             </div>
 
-            <div className='md:mt-[137px] mt-8'>
-                <div ref={imagesRef} className='flex md:gap-8 gap-4 justify-center items-center'>
+            <div className='md:mt-[137px] mt-8 marquee'>
+                <div ref={imagesRef} className='flex md:gap-8 gap-4 justify-center items-center marquee-inner'>
+                    <Image src={Img1} alt="Place" width={474} height={474} className='md:w-[474px] md:h-[474px] w-[165px] h-[165px] object-cover rounded' />
+                    <Image src={Img2} alt="Place" width={474} height={711} className='md:w-[474px] md:h-[711px] w-[165px] h-[247px] object-cover rounded' />
+                    <Image src={Img3} alt="Place" width={474} height={474} className='md:w-[474px] md:h-[474px] w-[165px] h-[165px] object-cover rounded' />
+                    <Image src={Img4} alt="Place" width={474} height={711} className='md:w-[474px] md:h-[711px] w-[165px] h-[247px] object-cover rounded' />
                     <Image src={Img1} alt="Place" width={474} height={474} className='md:w-[474px] md:h-[474px] w-[165px] h-[165px] object-cover rounded' />
                     <Image src={Img2} alt="Place" width={474} height={711} className='md:w-[474px] md:h-[711px] w-[165px] h-[247px] object-cover rounded' />
                     <Image src={Img3} alt="Place" width={474} height={474} className='md:w-[474px] md:h-[474px] w-[165px] h-[165px] object-cover rounded' />
@@ -44,12 +52,13 @@ const PlaceSection = () => {
                         </h2>
                         <div ref={destinationsRef} className='md:mt-[49px] mt-8 w-full'>
                             {
-                                [{ title: "Perche", description: "Oussoy-en-Gâtinais, loiret 45239", date: "2025" },
-                                { title: "Normandie", description: "soon", date: "2025" },
-                                { title: "Deauville", description: "soon", date: "2025" },
-                                { title: "Vexin", description: "soon", date: "2025" }].map((item, idx) => (
-                                    <div key={idx} className="flex justify-between items-center w-full border-t border-[#292222] md:h-24 h-32">
+                                [{ title: "Perche", description: "Oussoy-en-Gâtinais, loiret 45239", date: "2025", img: TableImg1 },
+                                { title: "Normandie", description: "soon", date: "2025", img: TableImg2 },
+                                { title: "Deauville", description: "soon", date: "2025", img: TableImg3 },
+                                { title: "Vexin", description: "soon", date: "2025", img: TableImg4 }].map((item, idx) => (
+                                    <div key={idx} className="group flex justify-between items-center w-full border-t border-[#292222] md:h-24 h-32 relative cursor-pointer touch-manipulation">
                                         <div className='md:w-[932px] w-full flex md:flex-row flex-col md:justify-between items-start md:items-center'>
+                                            <Image src={item.img} alt={item.title} width={474} height={474} className={`md:w-[247px] md:h-[338px] w-[165px] h-[208px] object-cover rounded absolute ${(idx===0 || idx===1)?'top-[25px]' : 'bottom-[25px]'} ${idx===0 ? 'md:left-[293px] right-0' : idx===1 ? 'md:left-[320px] right-0' : idx===2 ? 'md:left-[358px] right-0' : 'md:left-[134px] right-0'} opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300`} />
                                             <h3 className="text-black-green font-nichrome font-bold md:text-[32px] text-[28px] uppercase leading-tight md:max-w-60 max-w-full">{item.title}</h3>
                                             <p className="text-black-green font-normal font-nichrome text-[20px] tracking-normal text-end">{item.description}</p>
                                         </div>

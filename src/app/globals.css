@@ -162,3 +162,23 @@ section {
   transform-origin: center center;
 }
 
+/* Marquee Styles */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap
+}
+
+.marquee-inner {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover {
+  animation-play-state: paused
+}
+
+@keyframes marquee {
+  to {
+      transform: translateX(-50%)
+  }
+}

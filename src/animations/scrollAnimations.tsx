@@ -1,9 +1,11 @@
 "use client";
 
-import { gsap } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useEffect, useRef } from "react";
 
 // Generic scroll animation hooks
+gsap.registerPlugin(ScrollTrigger);
+
 export const useScrollFadeIn = (delay: number = 0) => {
   const elementRef = useRef<HTMLElement>(null);
 
@@ -560,45 +562,41 @@ export const useOffsiteAnimations = () => {
         );
       }
 
-      // Images animation
-      if (imagesRef.current) {
-        const images = imagesRef.current.children;
-        gsap.fromTo(
-          images,
-          { y: 100, opacity: 0, scale: 0.9 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1.2,
-            ease: "power3.out",
-            stagger: 0.2,
-            scrollTrigger: {
-              trigger: imagesRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
+      // Images horizontal scroll animation using container and scrollWidth approach
+      let sections = gsap.utils.toArray(".slide");
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".horizontal-sliders",
+          start: "center center", // Start when viewport is centered on the trigger
+          pin: ".offsite-section",
+          pinSpacing: true,
+          scrub: 1,
+          end: "+=3000",
+          onUpdate: (self) => {
+            // Trigger bottom content animation when horizontal scroll is nearly complete
+            if (self.progress > 0.95 && bottomContentRef.current && !bottomContentRef.current.classList.contains('animated')) {
+              console.log('Horizontal scroll animation nearly complete, starting bottom content animation');
+              bottomContentRef.current.classList.add('animated');
+              gsap.fromTo(
+                bottomContentRef.current,
+                { y: 50, opacity: 0 },
+                {
+                  y: 0,
+                  opacity: 1,
+                  duration: 1.2,
+                  ease: "power3.out",
+                }
+              );
+            }
           }
-        );
-      }
+        }
+      });
 
-      // Bottom content animation
+      // Set initial state for bottom content
       if (bottomContentRef.current) {
-        gsap.fromTo(
-          bottomContentRef.current,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: bottomContentRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
+        gsap.set(bottomContentRef.current, { y: 50, opacity: 0 });
       }
     });
 
@@ -609,80 +607,54 @@ export const useOffsiteAnimations = () => {
 };
 
 export const useVacationAnimations = () => {
-  const titleRef = useRef<HTMLDivElement>(null);
-  const firstRowRef = useRef<HTMLDivElement>(null);
-  const secondRowRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Title animation
-      if (titleRef.current) {
-        gsap.fromTo(
-          titleRef.current,
-          { y: 100, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.2,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: titleRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      }
+      // Card wrappers animation
+      const cardWrappers = gsap.utils.toArray(".card-wrapper");
 
-      // First row animation
-      if (firstRowRef.current) {
-        const elements = firstRowRef.current.children;
-        gsap.fromTo(
-          elements,
-          { y: 50, opacity: 0, scale: 0.95 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: "power3.out",
-            stagger: 0.15,
-            scrollTrigger: {
-              trigger: firstRowRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      }
+      const blockHeight = 300;
+      const time = 1.5;
 
-      // Second row animation
-      if (secondRowRef.current) {
-        const elements = secondRowRef.current.children;
-        gsap.fromTo(
-          elements,
-          { y: 50, opacity: 0, scale: 0.95 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: "power3.out",
-            stagger: 0.15,
-            scrollTrigger: {
-              trigger: secondRowRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      }
+      gsap.set(cardWrappers, {
+        y: (index) => 30 * index,
+        transformOrigin: "center top"
+      });
+
+       //--------------------------------//
+       // The animation
+       //--------------------------------//
+       const tl = gsap.timeline({
+         defaults: {
+           ease: "none"
+         },
+         scrollTrigger: {
+           trigger: ".trigger",
+           start: "top top",
+           end: `${blockHeight * 10} top`,
+           scrub: 1,
+           pin: ".extra-trigger",
+         }
+       });
+       
+       // Animate cards up from off screen one by one.
+       tl.to(".card-wrapper:not(:first-child)", {
+         yPercent: (i) => -100 * (i + 1),
+         duration: time / 2,
+         stagger: time/2
+       });
+
+       // Fade out animation for title and card wrappers
+       tl.to(".trigger", {
+         opacity: 0,
+         duration: 0.5,
+         ease: "power2.out"
+       }); // Start fade out slightly before the end
     });
 
     return () => ctx.revert();
   }, []);
 
-  return { titleRef, firstRowRef, secondRowRef };
+  return { };
 };
 
 export const usePlaceAnimations = () => {
