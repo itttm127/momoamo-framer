@@ -613,48 +613,48 @@ export const useVacationAnimations = () => {
       const cardWrappers = gsap.utils.toArray(".card-wrapper");
 
       const blockHeight = 300;
-      const time = 1.5;
+      const time = 2;
 
       gsap.set(cardWrappers, {
         y: (index) => 30 * index,
         transformOrigin: "center top"
       });
 
-       //--------------------------------//
-       // The animation
-       //--------------------------------//
-       const tl = gsap.timeline({
-         defaults: {
-           ease: "none"
-         },
-         scrollTrigger: {
-           trigger: ".trigger",
-           start: "top top",
-           end: `${blockHeight * 10} top`,
-           scrub: 1,
-           pin: ".extra-trigger",
-         }
-       });
-       
-       // Animate cards up from off screen one by one.
-       tl.to(".card-wrapper:not(:first-child)", {
-         yPercent: (i) => -100 * (i + 1),
-         duration: time / 2,
-         stagger: time/2
-       });
+      //--------------------------------//
+      // The animation
+      //--------------------------------//
+      const tl = gsap.timeline({
+        defaults: {
+          ease: "none"
+        },
+        scrollTrigger: {
+          trigger: ".trigger",
+          start: "top top",
+          end: `${blockHeight * 10} top`,
+          scrub: 1,
+          pin: ".extra-trigger",
+        }
+      });
 
-       // Fade out animation for title and card wrappers
-       tl.to(".trigger", {
-         opacity: 0,
-         duration: 0.5,
-         ease: "power2.out"
-       }); // Start fade out slightly before the end
+      // Animate cards up from off screen one by one.
+      tl.to(".card-wrapper:not(:first-child)", {
+        yPercent: (i) => -100 * (i + 1),
+        duration: (i) => 1.5 * (i + 1),
+        stagger: time / 2
+      });
+
+      // Fade out animation for title and card wrappers
+      tl.to(".trigger", {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out"
+      });
     });
 
     return () => ctx.revert();
   }, []);
 
-  return { };
+  return {};
 };
 
 export const usePlaceAnimations = () => {

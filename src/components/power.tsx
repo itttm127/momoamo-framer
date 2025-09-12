@@ -25,7 +25,7 @@ import { Autoplay } from "swiper/modules"
 import "swiper/css"
 
 const PowerSection = () => {
-    const { leftContentRef, rightContentRef, statsRef, swiperRef } = usePowerAnimations();
+    const { leftContentRef, rightContentRef } = usePowerAnimations();
 
     return (
         <section className="w-full mx-auto relative overflow-hidden md:py-[123px] py-[64px] md:px-0 px-4">
@@ -44,7 +44,7 @@ const PowerSection = () => {
                         Voir le site
                         <Image src={Arrow_Svg} alt="Arrow" width={20} height={20} className="w-[20px] h-[20px]" />
                     </button>
-                    <div ref={statsRef} className="w-full md:mt-[72px] mt-8">
+                    <div className="w-full md:mt-[72px] mt-8">
                         {/* Desktop: 3 in a row, Mobile: 2 in first row, 1 centered in second row */}
                         <div className="hidden md:flex flex-nowrap justify-between items-center gap-y-8">
                             {[
@@ -99,7 +99,7 @@ const PowerSection = () => {
             </div>
             <div className="md:mt-16 mt-8 flex flex-col justify-center">
                 <p className="text-[20px] font-general font-normal text-center text-power-secondary">Tout n’est qu’une histoire de confiance.</p>
-                <div ref={swiperRef} className="w-full my-6 flex justify-center items-center md:gap-[71px] gap-10">
+                <div className="w-full my-6 flex justify-center items-center md:gap-[71px] gap-10">
                     <Swiper
                         modules={[Autoplay]}
                         spaceBetween={30}

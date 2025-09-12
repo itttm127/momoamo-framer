@@ -65,7 +65,7 @@ const AccordionItem = ({ title, paragraph }: { title: string, paragraph: string 
         >
             <div className="accordion-item__line">
                 <h3 className="font-general font-medium text-[20px] uppercase text-[#273A1F] text-faq-secondary leading-none">{title}</h3>
-                <span className="accordion-item__icon" />
+                <span className="accordion-item__icon cursor-pointer" />
             </div>
             <div className="accordion-item__inner">
                 <div className="accordion-item__content">

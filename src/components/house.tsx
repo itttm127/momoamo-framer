@@ -143,9 +143,9 @@ const HouseSection = () => {
                                                 height={525}
                                                 className="w-full h-full object-cover"
                                             />
+                                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
                                         </div>
                                         {/* Gradient overlay */}
-                                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
                                         <div className="flex flex-col absolute md:bottom-6 bottom-4 md:left-6 left-4 md:max-w-[351px] max-w-[250px]">
                                             <h1 className="text-[#EEE5D7] font-nichrome font-bold md:text-[32px] text-[28px] uppercase leading-tight">{item.title}</h1>
                                             <p className="text-[#EEE5D7] font-normal font-nichrome md:text-[26px] text-[22px] tracking-normal">{item.description}</p>

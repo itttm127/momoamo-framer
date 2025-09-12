@@ -12,6 +12,36 @@ export const useHeroAnimations = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+
+      // Letters animation - animate the letter_animation container
+      if (lettersRef.current) {
+        // Find the letter_animation div within lettersRef
+        const letterAnimationDiv = lettersRef.current.querySelector('.letter_animation');
+
+        if (letterAnimationDiv) {
+          // Animate the container itself
+          gsap.fromTo(
+            letterAnimationDiv,
+            {
+              width: 0,
+              height: 0,
+              opacity: 0,
+              scale: 0.8,
+              transformOrigin: "center center"
+            },
+            {
+              width: "auto",
+              height: "auto",
+              opacity: 1,
+              scale: 1,
+              transformOrigin: "center center",
+              duration: 1.5,
+              ease: "back.out(1.7)",
+            }
+          );
+        }
+      }
+
       // Header animation - slide down from top
       gsap.fromTo(
         headerRef.current,
@@ -25,34 +55,6 @@ export const useHeroAnimations = () => {
         }
       );
 
-      // Letters animation - animate the letter_animation container
-      if (lettersRef.current) {
-        // Find the letter_animation div within lettersRef
-        const letterAnimationDiv = lettersRef.current.querySelector('.letter_animation');
-        
-        if (letterAnimationDiv) {
-          // Animate the container itself
-          gsap.fromTo(
-            letterAnimationDiv,
-            { 
-              width: 0, 
-              height: 0, 
-              opacity: 0,
-              scale: 0.8,
-              transformOrigin: "center center"
-            },
-            {
-              width: "auto",
-              height: "auto", 
-              opacity: 1,
-              scale: 1,
-              transformOrigin: "center center",
-              duration: 1.5,
-              ease: "back.out(1.7)",
-            }
-          );
-        }
-      }
 
       // Title animation - slide up with stagger
       if (titleRef.current) {
@@ -87,7 +89,7 @@ export const useHeroAnimations = () => {
       // Images animation - staggered entrance from different directions
       if (imagesRef.current) {
         const images = imagesRef.current.children;
-        
+
         // House image - slide in from right
         gsap.fromTo(
           images[0],
@@ -219,48 +221,6 @@ export const useHeroInteractiveAnimations = () => {
           });
         });
       }
-
-      // Letter hover animations
-    //   const letters = document.querySelectorAll(".hero-letter");
-    //   letters.forEach((letter) => {
-    //     letter.addEventListener("mouseenter", () => {
-    //       gsap.to(letter, {
-    //         scale: 1.1,
-    //         rotation: 5,
-    //         duration: 0.3,
-    //         ease: "power2.out",
-    //       });
-    //     });
-
-    //     letter.addEventListener("mouseleave", () => {
-    //       gsap.to(letter, {
-    //         scale: 1,
-    //         rotation: 0,
-    //         duration: 0.3,
-    //         ease: "power2.out",
-    //       });
-    //     });
-    //   });
-
-      // Image hover animations
-      const images = document.querySelectorAll(".hero-image");
-      images.forEach((image) => {
-        image.addEventListener("mouseenter", () => {
-          gsap.to(image, {
-            scale: 1.05,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-
-        image.addEventListener("mouseleave", () => {
-          gsap.to(image, {
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      });
     });
 
     return () => ctx.revert();

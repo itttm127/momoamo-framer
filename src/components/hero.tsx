@@ -23,7 +23,7 @@ const HeroSection = () => {
 
     return (
         <section className="w-full py-7 mx-auto relative md:h-[950px] h-[812px] overflow-hidden">
-            <header ref={headerRef} className="w-full flex justify-between items-center md:px-0 px-4">
+            <header ref={headerRef} className="w-full flex justify-between items-center md:px-0 px-4 opacity-0">
                 <div className="flex md:justify-start justify-between items-center gap-6 w-full">
                     <a className="uppercase leading-none tracking-wider font-nichrome text-lime-green text-xl font-bold no-underline cursor-pointer">INSTAGRAM</a>
                     <a className="uppercase leading-none tracking-wider font-nichrome text-lime-green text-xl font-bold no-underline cursor-pointer">LINKEDIN</a>
