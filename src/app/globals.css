@@ -42,6 +42,50 @@ body {
   }
 }
 
+/* Hover Color States for Buttons and Links */
+@media (hover: hover) and (pointer: fine) {
+  /* Lime green buttons */
+  button.bg-lime-green:hover {
+    background-color: #c4e63a;
+  }
+
+  /* Dark buttons */
+  button.bg-\[\#292222\]:hover {
+    background-color: #585656;
+  }
+
+  /* Power section buttons */
+  button.bg-power-secondary:hover {
+    background-color: #8de8d4;
+  }
+
+  /* Border buttons */
+  button.border-lime-green:hover {
+    background-color: #DEFF4E;
+    color: #273A1F;
+  }
+
+  /* Transparent buttons */
+  button.bg-transparent:hover {
+    background-color: rgba(223, 255, 78, 0.034);
+  }
+
+  /* Hero button */
+  .hero-button:hover {
+    background-color: #c4e63a;
+  }
+
+  /* Lime green links */
+  a.text-lime-green:hover {
+    color: #c4e63a;
+  }
+
+  /* General links */
+  a:hover {
+    opacity: 0.8;
+  }
+}
+
 section {
   max-width: 1440px;
 }
@@ -153,4 +197,9 @@ section {
   to {
       transform: translateX(-50%)
   }
+}
+
+
+.test-card-class:hover {
+  z-index: 10;
 }

@@ -34,17 +34,17 @@ const FooterSection = () => {
 
             <div className='w-full md:mt-[64px] mt-8 flex md:flex-row flex-col justify-between md:gap-7 gap-4'>
                 <div ref={socialRef} className='w-full flex flex-col justify-between'>
-                    <div className='relative cursor-pointer group touch-manipulation'>
+                    <div className='relative cursor-pointer w-fit group touch-manipulation'>
                         <h1 className='text-lime-green font-nichrome font-bold md:text-[96px] text-[58px] uppercase leading-18'>
                             INSTAGRAM
                         </h1>
-                        <Image src={UserImg} alt="User" width={100} height={100} className="w-[110px] h-[166px] object-cover absolute top-6 md:left-[45%] right-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300" />
+                        <Image src={UserImg} alt="User" width={100} height={100} className="w-[110px] h-[166px] object-cover absolute top-6 md:left-[80%] right-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <div className='relative cursor-pointer group touch-manipulation'>
+                    <div className='relative cursor-pointer w-fit group touch-manipulation'>
                         <h1 className='text-lime-green font-nichrome font-bold md:text-[96px] text-[58px] uppercase leading-18'>
                             LINKEDIN
                         </h1>
-                        <Image src={UserImg} alt="User" width={100} height={100} className="w-[110px] h-[166px] object-cover absolute top-6 md:left-[30%] right-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300" />
+                        <Image src={UserImg} alt="User" width={100} height={100} className="w-[110px] h-[166px] object-cover absolute top-6 md:left-[45%] right-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300" />
                     </div>
                 </div>
                 <div ref={linksRef} className='w-full flex flex-col justify-between md:min-h-[192px] min-h-[154px]'>

@@ -27,22 +27,22 @@ import Img4 from '@/assets/images/house/img4.jpg';
 const features = [
     {
         icon: Diversity2_Svg,
-        title: 'La sélection de lieux rares et singuliers',
+        title: <>La sélection de lieux <br /> rares et singuliers</>,
         description: 'pensés pour l’accueil professionnel (espaces de travail intégrés, qualité du Wi-Fi, ergonomie, ambiance…).',
     },
     {
         icon: HandMeal_Svg,
-        title: 'La scénarisation del’expérience de séjour',
+        title: 'La scénarisation de l’expérience de séjour',
         description: 'avec un accompagnement de A à Z (accueil, restauration, activités, services), qui transforme un offsite en moment marquant.',
     },
     {
         icon: HomeGear_Svg,
-        title: 'L’exigence curatoriale',
+        title: <>L’exigence <br /> curatoriale</>,
         description: 'on propose des lieux rares, alignés avec une vision forte de l’expérience professionnelle moderne.',
     },
     {
         icon: Business_Svg,
-        title: `L'angle "pro" assuméet intégré dès le départ`,
+        title: <>L'angle "pro" assumé<br /> et intégré dès le départ</>,
         description: `là où d'autres adaptent des maisons de vacances pour les séminaires, on conçoit l’expérience autour du besoin (temps de travail, moments d’équipe, logistique fluide).`,
     }
 
@@ -167,10 +167,10 @@ const HouseSection = () => {
             <div ref={featuresRef} className="md:mt-[76px] mt-8 grid md:grid-cols-4 grid-cols-1 gap-8">
                 {features.map((feature, idx) => (
                     <div key={idx} className="flex flex-col items-start gap-4 w-[314px]">
-                        <Image src={feature.icon} alt={feature.title} width={40} height={40} className="w-[40px] h-[40px]" />
+                        <Image src={feature.icon} alt={feature.title.toString()} width={40} height={40} className="w-[40px] h-[40px]" />
                         <div className="flex flex-col">
-                            <h1 className="text-house-secondary font-nichrome font-bold md:text-[32px] text-[28px] uppercase leading-tight">{feature.title}</h1>
-                            <p className="text-house-secondary font-normal font-nichrome md:text-[26px] text-[22px] tracking-normal">{feature.description}</p>
+                            <h1 className="text-house-secondary font-nichrome font-bold md:text-[32px] text-[28px] uppercase leading-[100%]">{feature.title}</h1>
+                            <p className="text-house-secondary font-normal font-nichrome md:text-[26px] text-[22px] tracking-normal leading-[1.2]">{feature.description}</p>
                         </div>
                     </div>
                 ))}

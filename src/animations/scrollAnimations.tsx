@@ -611,12 +611,18 @@ export const useVacationAnimations = () => {
     const ctx = gsap.context(() => {
       // Card wrappers animation
       const cardWrappers = gsap.utils.toArray(".card-wrapper");
+      const numCards = cardWrappers.length;
 
-      const blockHeight = 300;
+      // Select all h1 titles inside the .extra-trigger (the section's title)
+      const titleEls = gsap.utils.toArray(".extra-trigger h1");
+
+      const blockHeight = 320;
       const time = 2;
 
+      // Set initial state with a little more separation for a more "floating" effect
       gsap.set(cardWrappers, {
-        y: (index) => 30 * index,
+        y: (index) => 40 * index,
+        opacity: 0.95,
         transformOrigin: "center top"
       });
 
@@ -625,30 +631,54 @@ export const useVacationAnimations = () => {
       //--------------------------------//
       const tl = gsap.timeline({
         defaults: {
-          ease: "none"
+          // Use a smoother ease for all tweens
+          ease: "power1.inOut"
         },
         scrollTrigger: {
           trigger: ".trigger",
           start: "top top",
           end: `${blockHeight * 10} top`,
-          scrub: 1,
+          scrub: 1.5, // Increase scrub for smoother interpolation
           pin: ".extra-trigger",
+          anticipatePin: 1, // Helps with pinning smoothness
         }
       });
 
-      // Animate cards up from off screen one by one.
+      // Animate cards up from off screen one by one, with a gentler ease and longer stagger
       tl.to(".card-wrapper:not(:first-child)", {
-        yPercent: (i) => -100 * (i + 1),
-        duration: (i) => 1.5 * (i + 1),
-        stagger: time / 2
-      });
-
-      // Fade out animation for title and card wrappers
-      tl.to(".trigger", {
-        opacity: 0,
-        duration: 0.3,
+        yPercent: (i) => -95 * (i + 1),
+        duration: (i) => 2 * (i + 1), // Slightly longer duration for smoothness
+        stagger: {
+          each: time / 1.5, // Slightly longer stagger for less overlap
+          ease: "power1.inOut"
+        },
         ease: "power2.out"
       });
+
+      // Add a label after the main stacking
+      tl.add("afterStack");
+
+      // Scroll up all cards and titles by the screen height (window.innerHeight)
+      tl.to(
+        [...cardWrappers, ...titleEls],
+        {
+          y: () => `-=${window.innerHeight}`,
+          duration: 6, // Slightly longer for smoothness
+          ease: "power3.inOut"
+        },
+        "afterStack+=0.3"
+      );
+
+      // Fade out all cards AND the title(s) together, slower and with a gentle ease
+      tl.to(
+        [...cardWrappers, ...titleEls],
+        {
+          opacity: 0,
+          duration: 2.5,
+          ease: "power2.in"
+        },
+        "afterStack+=1.5"
+      );
     });
 
     return () => ctx.revert();

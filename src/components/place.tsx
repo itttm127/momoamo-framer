@@ -56,9 +56,12 @@ const PlaceSection = () => {
                                 { title: "Normandie", description: "soon", date: "2025", img: TableImg2 },
                                 { title: "Deauville", description: "soon", date: "2025", img: TableImg3 },
                                 { title: "Vexin", description: "soon", date: "2025", img: TableImg4 }].map((item, idx) => (
-                                    <div key={idx} className="group flex justify-between items-center w-full border-t border-[#292222] md:h-24 h-32 relative cursor-pointer touch-manipulation">
+                                    <div key={idx} className="test-card-class z-0 group flex justify-between items-center w-full border-t border-[#292222] md:h-24 h-32 relative cursor-pointer touch-manipulation">
                                         <div className='md:w-[932px] w-full flex md:flex-row flex-col md:justify-between items-start md:items-center'>
-                                            <Image src={item.img} alt={item.title} width={474} height={474} className={`md:w-[247px] md:h-[338px] w-[165px] h-[208px] object-cover rounded absolute ${(idx===0 || idx===1)?'top-[25px]' : 'bottom-[25px]'} ${idx===0 ? 'md:left-[293px] right-0' : idx===1 ? 'md:left-[320px] right-0' : idx===2 ? 'md:left-[358px] right-0' : 'md:left-[134px] right-0'} opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300`} />
+                                            <div className={`md:w-[247px] md:h-[338px] w-[165px] h-[208px] object-cover rounded absolute ${(idx===0 || idx===1)?'top-[25px]' : 'bottom-[25px]'} ${idx===0 ? 'md:left-[293px] right-0' : idx===1 ? 'md:left-[320px] right-0' : idx===2 ? 'md:left-[358px] right-0' : 'md:left-[134px] right-0'} opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300`}>
+                                                <Image src={item.img} alt={item.title} width={474} height={474} className={`w-full h-full object-cover rounded`} />
+                                            </div>
+                                            {/* <Image src={item.img} alt={item.title} width={474} height={474} className={`z-10 md:w-[247px] md:h-[338px] w-[165px] h-[208px] object-cover rounded absolute ${(idx===0 || idx===1)?'top-[25px]' : 'bottom-[25px]'} ${idx===0 ? 'md:left-[293px] right-0' : idx===1 ? 'md:left-[320px] right-0' : idx===2 ? 'md:left-[358px] right-0' : 'md:left-[134px] right-0'} opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300`} /> */}
                                             <h3 className="text-black-green font-nichrome font-bold md:text-[32px] text-[28px] uppercase leading-tight md:max-w-60 max-w-full">{item.title}</h3>
                                             <p className="text-black-green font-normal font-nichrome text-[20px] tracking-normal text-end">{item.description}</p>
                                         </div>
