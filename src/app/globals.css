@@ -88,6 +88,8 @@ body {
 
 section {
   max-width: 1440px;
+  padding-right: 8px;
+  padding-left: 8px;
 }
 
 /* Swiper Progress Bar */
