@@ -71,18 +71,18 @@ const HouseSection = () => {
                 {/* Navigation */}
                 <div className="w-28 h-8 md:flex hidden justify-between">
                     <button
-                        className="w-8 h-8 rounded bg-transparent"
+                        className="w-8 h-8 rounded bg-transparent flex justify-center items-center p-[6.67px]"
                         onClick={handlePrev}
                         aria-label="Previous"
                     >
-                        <Image src={Arrow_House_Svg} alt="Arrow" width={24} height={24} className="w-auto h-auto rotate-180" />
+                        <Image src={Arrow_House_Svg} alt="Arrow" width={18.67} height={18.67} className="w-auto h-auto rotate-180" />
                     </button>
                     <button
-                        className="w-8 h-8 rounded bg-transparent"
+                        className="w-8 h-8 rounded bg-transparent flex justify-center items-center p-[6.67px]"
                         onClick={handleNext}
                         aria-label="Next"
                     >
-                        <Image src={Arrow_House_Svg} alt="Arrow" width={24} height={24} className="w-auto h-auto" />
+                        <Image src={Arrow_House_Svg} alt="Arrow" width={18.67} height={18.67} className="w-auto h-auto" />
                     </button>
                 </div>
             </div>

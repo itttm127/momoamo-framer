@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { useHeroAnimations, useHeroInteractiveAnimations } from '@/animations/hero';
+import { useHeroAnimations, useHeroInteractiveAnimations, useHeroScrollAnimations } from '@/animations/hero';
 
 // SVGS
 import Arrow_Svg from '@/assets/images/hero/arrow_forward.svg';
@@ -19,10 +19,11 @@ import HouseImage from '@/assets/images/hero/house.jpg';
 const HeroSection = () => {
     // Initialize animations
     const { headerRef, lettersRef, titleRef, buttonRef, imagesRef } = useHeroAnimations();
+    const { heroRef } = useHeroScrollAnimations(lettersRef, titleRef, imagesRef);
     useHeroInteractiveAnimations();
 
     return (
-        <section className="w-full py-7 mx-auto relative md:h-[950px] h-[812px] overflow-hidden">
+        <section ref={heroRef} className="w-full py-7 mx-auto relative md:h-[950px] h-[812px] overflow-hidden">
             <header ref={headerRef} className="w-full flex justify-between items-center md:px-0 px-4 opacity-0">
                 <div className="flex md:justify-start justify-between items-center gap-6 w-full">
                     <a className="uppercase leading-none tracking-wider font-nichrome text-lime-green text-xl font-bold no-underline cursor-pointer">INSTAGRAM</a>
@@ -35,7 +36,7 @@ const HeroSection = () => {
             </header>
 
             <main className="w-full h-full md:mt-10 mt-[18px] md:px-0 px-4">
-                <div className="w-full">
+                <div className="w-full h-[28%]">
                     <div ref={lettersRef} className="flex justify-center items-center md:gap-1 gap-0 relative z-[1]">
                         {/* M */}
                         <Image src={M_Svg} alt="M" width={200} height={187} className="hero-letter h-12 md:h-48 w-auto" />

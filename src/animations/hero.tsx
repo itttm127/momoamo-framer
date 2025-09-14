@@ -1,7 +1,9 @@
 "use client";
 
-import { gsap } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useEffect, useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const useHeroAnimations = () => {
   const headerRef = useRef<HTMLElement>(null);
@@ -160,40 +162,65 @@ export const useHeroAnimations = () => {
 };
 
 // Scroll-triggered animations for hero elements
-export const useHeroScrollAnimations = () => {
+export const useHeroScrollAnimations = (
+  lettersRef?: React.RefObject<HTMLDivElement | null>,
+  titleRef?: React.RefObject<HTMLDivElement | null>,
+  imagesRef?: React.RefObject<HTMLDivElement | null>
+) => {
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Ensure initial opacity is 1 for both title and images
+    if (titleRef?.current) {
+      gsap.set(titleRef.current, { opacity: 1 });
+    }
+    if (imagesRef?.current) {
+      gsap.set(imagesRef.current, { opacity: 1 });
+    }
+
     const ctx = gsap.context(() => {
       if (heroRef.current) {
-        // Parallax effect for background elements
-        gsap.to(heroRef.current.querySelector(".hero-bg"), {
-          yPercent: -50,
-          ease: "none",
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
+        // Title fade out and move up on scroll
+        if (titleRef?.current) {
+          gsap.to(
+            titleRef.current,
+            {
+              y: -40,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: heroRef.current,
+                start: "top top",
+                end: "bottom top",
+                scrub: 1.2,
+              },
+            }
+          );
+        }
 
-        // Scale down effect on scroll
-        gsap.to(heroRef.current.querySelector(".hero-content"), {
-          scale: 0.95,
-          ease: "none",
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top center",
-            end: "bottom center",
-            scrub: true,
-          },
-        });
+        // Images fade out and move up on scroll
+        if (imagesRef?.current) {
+          // Get the current computed Y position (relative to its current transform)
+          const currentY = gsap.getProperty(imagesRef.current, "y") as number || 0;
+          console.log("currentY", currentY);
+          gsap.to(
+            imagesRef.current,
+            {
+              y: -40,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: heroRef.current,
+                start: "top top",
+                end: "bottom top",
+                scrub: 1,
+              },
+            }
+          );
+        }
       }
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [lettersRef, titleRef, imagesRef]);
 
   return { heroRef };
 };
