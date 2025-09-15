@@ -9,7 +9,7 @@ const generalSans = localFont({
 });
 
 const nichrome = localFont({
-  src: "../fonts/MDNichromeTest-Regular.otf",
+  src: "../fonts/MDNichrome-Regular.otf",
   variable: "--font-md-nichrome",
 });
 

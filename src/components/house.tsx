@@ -166,7 +166,7 @@ const HouseSection = () => {
             </div>
             <div ref={featuresRef} className="md:mt-[76px] mt-8 grid md:grid-cols-4 grid-cols-1 gap-8">
                 {features.map((feature, idx) => (
-                    <div key={idx} className="flex flex-col items-start gap-4 w-[314px]">
+                    <div key={idx} className="flex flex-col items-start gap-4 md:max-w-[314px] max-w-[358px]">
                         <Image src={feature.icon} alt={feature.title.toString()} width={40} height={40} className="w-[40px] h-[40px]" />
                         <div className="flex flex-col">
                             <h1 className="text-house-secondary font-nichrome font-bold md:text-[32px] text-[28px] uppercase leading-[100%]">{feature.title}</h1>
