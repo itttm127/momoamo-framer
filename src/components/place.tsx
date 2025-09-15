@@ -19,15 +19,15 @@ const PlaceSection = () => {
 
     return (
         <section className="w-full mx-auto relative overflow-hidden md:py-[123px] py-[64px] md:px-0 px-4">
-            <h1 ref={titleRef} className="text-center text-black-green md:text-8xl text-[58px] font-nichrome font-bold tracking-normal">Plus qu'un lieu, un moment</h1>
+            <h1 ref={titleRef} className="text-center uppercase text-black-green md:text-[96px] text-[58px] font-nichrome font-bold tracking-normal leading-none">Plus qu'un lieu, un moment</h1>
             <div ref={descriptionRef} className='flex justify-center items-center md:mt-10 mt-6'>
-                <p className="text-center text-black-green md:text-[40px] text-[24px] font-normal font-nichrome tracking-normal max-w-[915px] md:mt-[32px] mt-[24px]">Offrir à chaque équipe un lieu unique, pour vivre
+                <p className="text-center text-black-green md:text-[40px] text-[24px] font-normal font-nichrome tracking-normal md:mt-[32px] mt-[24px] leading-[1.1]">Offrir à chaque équipe un lieu unique, pour vivre <br/>
                     une expérience collective qui allie proximité, confort et inspiration</p>
             </div>
             <div ref={buttonRef} className='flex justify-center items-center md:mt-10 mt-8'>
-                <button className="uppercase text-[#EEE5D7] bg-[#292222] font-bold font-nichrome md:text-[20px] text-[18px] md:w-[320px] w-full md:h-[56px] h-[48px] flex justify-center items-center gap-2 rounded">
+                <button className="uppercase text-[#EEE5D7] bg-[#292222] font-bold font-nichrome md:text-[32px] text-[28px] md:w-[429px] w-full md:h-[72px] h-[60px] flex justify-center items-center gap-2 rounded">
                     RÉSERVER VOTRE OFFSITE
-                    <Image src={Button_Arrow_Svg} alt="Arrow" width={20} height={20} className="w-[20px] h-[20px]" />
+                    <Image src={Button_Arrow_Svg} alt="Arrow" width={20} height={20} className="md:w-[28px] w-[20px] md:h-[28px] h-[20px]" />
                 </button>
             </div>
 

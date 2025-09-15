@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { usePowerAnimations } from "@/animations/scrollAnimations"
 // SVG
-import Arrow_Svg from "@/assets/images/place/place_arrow.svg"
+import Arrow_Svg from "@/assets/images/svgs/power_arrow.svg"
 import PowerFramer from "@/assets/images/power/frame.svg"
 import PowerLogo from "@/assets/images/power/logo.svg"
 import Airbnb_Svg from "@/assets/images/power/airbnb.svg"
@@ -34,13 +34,13 @@ const PowerSection = () => {
                     <h1 className="text-power-secondary font-nichrome font-bold md:text-[100px] text-[58px] uppercase leading-tight mb-6">
                         Powered by <br />KYMONO®
                     </h1>
-                    <p className="text-power-secondary font-normal font-nichrome text-[20px] tracking-normal md:mt-[24px] mt-8">
+                    <p className="text-power-secondary font-light font-general text-[20px] tracking-normal md:mt-[24px] mt-8 leading-[1.3]">
                         Depuis 2017, Kymono aide les entreprises à donner vie à leur culture.Avec des expertises complémentaires — vêtements et objets personnalisés, aménagement de bureaux, conseil et événementiel. On crée des expériences qui renforcent les liens et l’esprit d’équipe.
                         <br />
                         <br />
                         Notre mission côté événements : imaginer des moments forts pour les collaborateurs, et faire vibrer la culture d’entreprise.
                     </p>
-                    <button className="uppercase text-power-main bg-power-secondary font-bold font-nichrome md:text-[20px] text-[18px] md:w-[204px] w-full h-[60px] flex justify-center items-center gap-2 rounded mt-8">
+                    <button className="uppercase text-power-main bg-power-secondary font-bold font-nichrome text-[28px] md:w-[204px] w-full h-[60px] flex justify-center items-center gap-2 rounded mt-8">
                         Voir le site
                         <Image src={Arrow_Svg} alt="Arrow" width={20} height={20} className="w-[20px] h-[20px]" />
                     </button>
@@ -57,7 +57,7 @@ const PowerSection = () => {
                                     key={index}
                                 >
                                     <h2 className="uppercase font-nichrome font-bold text-[44px] text-power-secondary">{item.title}</h2>
-                                    <p className="font-general font-normal text-[20px] text-power-secondary">{item.description}</p>
+                                    <p className="font-general font-light text-[20px] text-power-secondary leading-[1.3]">{item.description}</p>
                                 </div>
                             ))}
                         </div>
@@ -98,7 +98,7 @@ const PowerSection = () => {
                 </div>
             </div>
             <div className="md:mt-16 mt-8 flex flex-col justify-center">
-                <p className="text-[20px] font-general font-normal text-center text-power-secondary">Tout n’est qu’une histoire de confiance.</p>
+                <p className="text-[20px] font-general font-light text-center text-power-secondary">Tout n’est qu’une histoire de confiance.</p>
                 <div className="w-full my-6 flex justify-center items-center md:gap-[71px] gap-10">
                     <Swiper
                         modules={[Autoplay]}
@@ -117,17 +117,13 @@ const PowerSection = () => {
                         className="w-full"
                     >
                         {[{ img: Airbnb_Svg, width: 103, height: 32 }, { img: Alan_Svg, width: 103, height: 21 }, { img: Doctolib_Svg, width: 98, height: 29 }, { img: Google_Svg, width: 62, height: 59 }, { img: Konbini_Svg, width: 90, height: 27 }, { img: Loreal_Svg, width: 90, height: 25 }, { img: Microsoft_Svg, width: 90, height: 30 }, { img: Netflix_Svg, width: 92, height: 25 }, { img: Qonto_Svg, width: 92, height: 25 }].map((item, index) => (
-                            <SwiperSlide key={index} className="flex justify-center items-center">
+                            <SwiperSlide key={index} className="!flex justify-center items-center !h-16">
                                 <Image
                                     src={item.img}
                                     alt={`Logo ${index}`}
                                     width={item.width}
                                     height={item.height}
-                                    className="w-[90px] h-[25px] md:w-auto md:h-auto mx-4 object-contain"
-                                    style={{
-                                        maxWidth: `${item.width}px`,
-                                        maxHeight: `${item.height}px`
-                                    }}
+                                    className="w-[103px] h-[29px] md:w-auto md:h-auto mx-4 object-contain"
                                 />
                             </SwiperSlide>
                         ))}

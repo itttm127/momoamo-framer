@@ -66,9 +66,9 @@ const HeroSection = () => {
                     <div ref={titleRef} className='w-full justify-center items-center md:mt-[87px] mt-[83px] relative z-[3]'>
                         <h1 className='hero-title uppercase text-center leading-none font-nichrome text-lime-green font-bold md:text-[80px] text-[58px] tracking-normal opacity-0'>Votre prochain offsite</h1>
                         <h1 className='hero-title uppercase text-center leading-none font-nichrome text-lime-green font-bold md:text-[80px] text-[58px] tracking-normal opacity-0'>commence ici</h1>
-                        <p className='hero-title my-6 text-center text-lime-green text-[20px] font-normal tracking-normal opacity-0'>Une collection de maisons d'exception destinée aux séjours en équipe</p>
+                        <p className='hero-title my-6 text-center text-lime-green font-general text-[20px] font-light tracking-normal opacity-0 leading-[1.3]'>Une collection de maisons d'exception destinée aux séjours en équipe</p>
                         <div className="w-full flex justify-center">
-                            <button ref={buttonRef} className="hero-button uppercase text-dark-green bg-lime-green font-bold font-nichrome md:text-[32px] text-[28px] md:w-[378px] md:h-[72px] w-[358px] h-[60px] flex justify-center items-center gap-2 opacity-0">RÉSERVER VOTRE OFFSITE <Image src={Arrow_Svg} alt="Arrow" width={24} height={24} className="w-auto h-auto" /></button>
+                            <button ref={buttonRef} className="hero-button uppercase text-dark-green bg-lime-green font-bold font-nichrome md:text-[32px] text-[28px] md:w-[378px] md:h-[72px] w-[358px] h-[60px] flex justify-center items-center gap-2 opacity-0 md:py-5 py-4 px-6">RÉSERVER VOTRE OFFSITE <Image src={Arrow_Svg} alt="Arrow" width={24} height={24} className="w-auto h-auto" /></button>
                         </div>
                     </div>
                     {/* Images with overlay */}

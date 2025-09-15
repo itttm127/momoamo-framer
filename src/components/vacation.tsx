@@ -14,11 +14,11 @@ const VacationSection = () => {
         <section className="trigger w-full mx-auto relative overflow-hidden md:py-[123px] py-[64px] md:px-0 px-4">
             <div className="extra-trigger">
                 <div className="w-full">
-                    <h1 className="uppercase text-center text-black-green md:text-8xl text-[58px] font-nichrome font-bold tracking-normal leading-14">Nos valeurs</h1>
-                    <h1 className="uppercase text-center text-black-green md:text-8xl text-[58px] font-nichrome font-bold tracking-normal md:leading-normal leading-14">donnent vie à votre</h1>
-                    <h1 className="uppercase text-center text-black-green md:text-8xl text-[58px] font-nichrome font-bold tracking-normal leading-14">séjour de rêve</h1>
+                    <h1 className="uppercase text-center text-black-green md:text-[96px] text-[58px] font-nichrome font-bold tracking-normal leading-14">Nos valeurs</h1>
+                    <h1 className="uppercase text-center text-black-green md:text-[96px] text-[58px] font-nichrome font-bold tracking-normal md:leading-normal leading-14">donnent vie à votre</h1>
+                    <h1 className="uppercase text-center text-black-green md:text-[96px] text-[58px] font-nichrome font-bold tracking-normal leading-14">séjour de rêve</h1>
                 </div>
-                <div className="card-container md:mt-[106px] mt-[32px] md:h-[625px] h-[725px]">
+                <div className="card-container md:mt-[106px] mt-[32px] md:h-[125px] h-[225px]">
                     <div className="grid gap-x-8 gap-y-12">
                         <div className="card-wrapper bg-[#EEE5D7]">
                             <div className="card grid md:grid-cols-3 grid-cols-1 w-full pt-4  border-t border-[#292222]">

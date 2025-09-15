@@ -65,8 +65,8 @@ const HouseSection = () => {
         <section className="w-full mx-auto relative overflow-hidden md:py-[123px] py-[64px] md:px-0 px-4">
             <div className="w-full flex justify-between items-end">
                 <div ref={titleRef} className="w-full">
-                    <h1 className="text-house-secondary font-nichrome font-bold md:text-[72px] text-[58px] uppercase leading-14">Une maison</h1>
-                    <h1 className="text-house-secondary font-nichrome font-bold md:text-[72px] text-[58px] uppercase md:leading-normal leading-14">momoamo c'est...</h1>
+                    <h1 className="text-house-secondary font-nichrome font-bold md:text-[96px] text-[58px] uppercase leading-14">Une maison</h1>
+                    <h1 className="text-house-secondary font-nichrome font-bold md:text-[96px] text-[58px] uppercase md:leading-normal leading-14">momoamo c'est...</h1>
                 </div>
                 {/* Navigation */}
                 <div className="w-28 h-8 md:flex hidden justify-between">
@@ -100,37 +100,38 @@ const HouseSection = () => {
                         disableOnInteraction: false,
                         pauseOnMouseEnter: true,
                     }}
-                    slidesPerView={3}
+                    slidesPerView={3.2}
                     spaceBetween={16}
                     loop={true}
                     breakpoints={{
                         320: {
-                            slidesPerView: 1,
+                            slidesPerView: 1.1,
                             spaceBetween: 16,
                         },
                         768: {
-                            slidesPerView: 2,
+                            slidesPerView: 2.2,
                             spaceBetween: 16,
                         },
                         1024: {
-                            slidesPerView: 3,
+                            slidesPerView: 3.2,
                             spaceBetween: 16,
                         },
                     }}
                     onInit={(swiper) => {
                         swiperRef.current = swiper;
                     }}
+                    style={{paddingRight: '0px'}}
                 >
                     {
                         [
                             { img: Img1.src, title: "de 20 à 50 personnes", description: "Un groupe = Une maison" },
-                            { img: Img2.src, title: "À moins de 2h30 des grandes villes", description: "Paris, Lyon, Bordeaux..." },
+                            { img: Img2.src, title: <>À moins de 2h30<br/> des grandes villes</>, description: "Paris, Lyon, Bordeaux..." },
                             { img: Img3.src, title: "Ancrée dans la nature", description: "Pour s’inspirer, se déconnecter, se dépasser" },
                             { img: Img4.src, title: "Design & singularité", description: "Une groupe = Une maison" }].map((item, idx) => (
                                 <SwiperSlide key={idx}>
                                     <div className="flex-shrink-0 px-2 relative">
                                         <div
-                                            className="relative w-full h-[400px] rounded overflow-hidden"
+                                            className="relative w-full h-[400px] overflow-hidden"
                                             style={{
                                                 background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6) 100%)',
                                                 backgroundBlendMode: 'multiply',
@@ -138,7 +139,7 @@ const HouseSection = () => {
                                         >
                                             <Image
                                                 src={item.img}
-                                                alt={item.title}
+                                                alt={item.title.toString()}
                                                 width={429}
                                                 height={525}
                                                 className="w-full h-full object-cover"
@@ -147,8 +148,8 @@ const HouseSection = () => {
                                         </div>
                                         {/* Gradient overlay */}
                                         <div className="flex flex-col absolute md:bottom-6 bottom-4 md:left-6 left-4 md:max-w-[351px] max-w-[250px]">
-                                            <h1 className="text-[#EEE5D7] font-nichrome font-bold md:text-[32px] text-[28px] uppercase leading-tight">{item.title}</h1>
-                                            <p className="text-[#EEE5D7] font-normal font-nichrome md:text-[26px] text-[22px] tracking-normal">{item.description}</p>
+                                            <h1 className="text-[#EEE5D7] font-nichrome font-bold text-[26px] uppercase leading-tight">{item.title}</h1>
+                                            <p className="text-[#EEE5D7] font-normal font-general text-[20px] tracking-normal leading-[1.2]">{item.description}</p>
                                         </div>
                                     </div>
                                 </SwiperSlide>
@@ -157,11 +158,11 @@ const HouseSection = () => {
             </div>
 
             {/* Text */}
-            <div ref={descriptionRef} className="mt-12 flex justify-end">
+            <div ref={descriptionRef} className="mt-12 flex justify-end md:my-[76px] my-[32px]">
                 <div className="md:w-[915px] w-[358px]">
-                    <h1 className="text-house-secondary font-nichrome font-bold md:text-[72px] text-[58px] uppercase leading-14 text-start">Le vrai savoir-faire</h1>
-                    <h1 className="text-house-secondary font-nichrome font-bold md:text-[72px] text-[58px] uppercase md:leading-normal leading-14 text-start">de momoamo®</h1>
-                    <p className="text-house-secondary font-normal font-nichrome md:text-[40px] text-[26px] tracking-normal text-start leading-12">Ce n'est pas juste de proposer de belles maisons, mais de créer des parenthèses inspirantes pour les équipes, dans des lieux qui allient exception architecturale, confort hôtelier et expérience sur-mesure.</p>
+                    <h1 className="text-house-secondary font-nichrome font-bold md:text-[96px] text-[58px] uppercase leading-14 text-start">Le vrai savoir-faire</h1>
+                    <h1 className="text-house-secondary font-nichrome font-bold md:text-[96px] text-[58px] uppercase md:leading-normal leading-14 text-start">de momoamo®</h1>
+                    <p className="text-house-secondary font-normal font-nichrome md:text-[40px] text-[26px] tracking-normal text-start leading-[1.1]">Ce n'est pas juste de proposer de belles maisons, mais de créer des parenthèses inspirantes pour les équipes, dans des lieux qui allient exception architecturale, confort hôtelier et expérience sur-mesure.</p>
                 </div>
             </div>
             <div ref={featuresRef} className="md:mt-[76px] mt-8 grid md:grid-cols-4 grid-cols-1 gap-8">
@@ -170,7 +171,7 @@ const HouseSection = () => {
                         <Image src={feature.icon} alt={feature.title.toString()} width={40} height={40} className="w-[40px] h-[40px]" />
                         <div className="flex flex-col">
                             <h1 className="text-house-secondary font-nichrome font-bold md:text-[32px] text-[28px] uppercase leading-[100%]">{feature.title}</h1>
-                            <p className="text-house-secondary font-normal font-nichrome md:text-[26px] text-[22px] tracking-normal leading-[1.2]">{feature.description}</p>
+                            <p className="text-house-secondary font-normal font-nichrome text-[26px] tracking-normal leading-none mt-4">{feature.description}</p>
                         </div>
                     </div>
                 ))}

@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { useCastleAnimations } from "@/animations/scrollAnimations";
 
 import HanSwiper, { HanSwiperRef } from "./han-swiper";
-import Arrow_Svg from '@/assets/images/hero/arrow_forward.svg';
+import Arrow_Svg from '@/assets/images/svgs/castle_arrow.svg';
 import Button_Arrow_Svg from '@/assets/images/svgs/arrow_forward.svg';
 import Bed_Svg from '@/assets/images/svgs/bed.svg';
 import ChairAlt_Svg from '@/assets/images/svgs/chair_alt.svg';
@@ -74,10 +74,10 @@ const CastleSection = () => {
     };
 
     return (
-        <section className="w-full mx-auto relative overflow-hidden bg-gray-green md:py-[123px] py-[64px] md:px-0 px-4">
-            <div ref={titleRef}>
+        <section className="w-full mx-auto relative overflow-hidden bg-gray-green md:py-[107px] py-[64px] md:px-0 px-4">
+            <div ref={titleRef} className="md:mb-8 mb-6">
                 <h1 className="uppercase text-start text-black-green md:text-8xl text-[58px] font-nichrome font-bold tracking-normal">CHÂteau de COURTIGIS</h1>
-                <p className="text-start text-black-green md:text-[40px] text-[24px] font-normal font-nichrome tracking-normal max-w-[915px] md:mt-[32px] mt-[24px]">Le premier lieu MOMOAMO est un domaine situé à l'est de la forêt d'Orléans à moins d'1h20 de Paris et 15 minutes de la gare de Montargis.</p>
+                <p className="text-start text-black-green md:text-[40px] text-[24px] font-normal font-nichrome tracking-normal max-w-[915px] md:mt-[32px] mt-[24px] leading-[1.1]">Le premier lieu MOMOAMO est un domaine situé à l'est de la forêt d'Orléans à moins d'1h20 de Paris et 15 minutes de la gare de Montargis.</p>
             </div>
 
             {/* Swiper */}
@@ -92,14 +92,14 @@ const CastleSection = () => {
                         aria-label="Previous"
                         onClick={handlePrev}
                     >
-                        <Image src={Arrow_Svg} alt="Arrow" width={18.67} height={18.67} className="w-[18.67px] h-[18.67px] rotate-180" />
+                        <Image src={Arrow_Svg} alt="Arrow" width={18.67} height={18.67} className="w-[18.67px] h-[18.67px]" />
                     </button>
                     <button
                         className="w-8 h-8 rounded bg-transparent flex justify-center items-center p-[6.67px]"
                         aria-label="Next"
                         onClick={handleNext}
                     >
-                        <Image src={Arrow_Svg} alt="Arrow" width={18.67} height={18.67} className="w-[18.67px] h-[18.67px]" />
+                        <Image src={Arrow_Svg} alt="Arrow" width={18.67} height={18.67} className="w-[18.67px] h-[18.67px] rotate-180" />
                     </button>
                 </div>
                 <div className="md:w-[915px] w-full">
@@ -122,13 +122,13 @@ const CastleSection = () => {
                     {features.map((feature, index) => (
                         <div key={index} className="flex flex-col items-start gap-3 md:max-w-[200px] max-w-[150px]">
                             <Image src={feature.icon} alt={feature.title} width={40} height={40} className="w-[40px] h-[40px]" />
-                            <span className="text-black-green font-normal font-nichrome md:text-[26px] text-[22px] leading-[1.2]">{feature.title}</span>
+                            <span className="text-black-green font-normal font-nichrome md:text-[26px] text-[22px] leading-none">{feature.title}</span>
                         </div>
                     ))}
                 </div>
-                <button className="uppercase text-[#EEE5D7] bg-[#292222] font-bold font-nichrome md:text-[20px] text-[18px] md:w-[320px] w-full md:h-[56px] h-[48px] flex justify-center items-center gap-2 rounded">
+                <button className="uppercase text-[#EEE5D7] bg-[#292222] font-bold font-nichrome md:text-[32px] text-[28px] md:w-[378px] w-[358px] md:h-[72px] h-[60px] flex justify-center items-center gap-[10px] rounded md:py-5 py-4 px-6">
                     RÉSERVER VOTRE OFFSITE
-                    <Image src={Button_Arrow_Svg} alt="Arrow" width={20} height={20} className="w-[20px] h-[20px]" />
+                    <Image src={Button_Arrow_Svg} alt="Arrow" width={20} height={20} className="md:w-[28px] w-[20px] md:h-[28px] h-[20px]" />
                 </button>
             </div>
         </section>

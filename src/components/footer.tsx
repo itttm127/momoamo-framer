@@ -19,20 +19,20 @@ const FooterSection = () => {
         <section className="w-full mx-auto relative overflow-hidden md:py-[123px] py-[64px] md:px-0 px-4">
             <div className="w-full flex md:flex-row flex-col justify-between md:gap-7 gap-4">
                 <div ref={topContentRef} className="w-full">
-                    <h1 className="text-lime-green font-nichrome font-bold md:text-[72px] text-[58px] uppercase leading-18">
+                    <h1 className="text-lime-green font-nichrome font-bold md:text-[96px] text-[58px] uppercase leading-none">
                         Join the <br /> community
                     </h1>
-                    <p className="text-lime-green font-normal font-nichrome md:text-[40px] text-[26px] tracking-normal">
+                    <p className="text-lime-green font-normal font-nichrome md:text-[40px] text-[26px] tracking-normal leading-[1.1] md:my-[24px] my-[32px]">
                         Pour les lève-tôt abonnés à notre newsletter et les clients de Kymono qui participent, on a une surprise spéciale pour vous. Petit indice : ça ne se reproduira pas !
                     </p>
-                    <button className="md:mt-6 mt-8 uppercase text-dark-green bg-lime-green font-bold font-nichrome md:text-[32px] text-[28px] md:w-[254px] w-full h-[60px] flex justify-center items-center gap-2">BE FIRST TO JOIN <Image src={Arrow_Svg} alt="Arrow" width={24} height={24} className="w-auto h-auto" /></button>
+                    <button className="md:mt-6 mt-8 uppercase text-dark-green bg-lime-green font-bold font-nichrome text-[28px] md:w-[254px] w-full h-[60px] flex justify-center items-center gap-2">BE FIRST TO JOIN <Image src={Arrow_Svg} alt="Arrow" width={24} height={24} className="w-auto h-auto" /></button>
                 </div>
                 <div ref={imageRef} className="w-full">
                     <Image src={Img3.src} alt="Offsite" width={357} height={465} className="md:w-[698px] md:h-[517px] w-[358px] h-[290px] object-cover" />
                 </div>
             </div>
 
-            <div className='w-full md:mt-[64px] mt-8 flex md:flex-row flex-col justify-between md:gap-7 gap-4'>
+            <div className='w-full md:mt-[124px] mt-16 flex md:flex-row flex-col justify-between md:gap-7 gap-8'>
                 <div ref={socialRef} className='w-full flex flex-col justify-between'>
                     <div className='relative cursor-pointer w-fit group touch-manipulation'>
                         <h1 className='text-lime-green font-nichrome font-bold md:text-[96px] text-[58px] uppercase leading-18'>
@@ -49,12 +49,12 @@ const FooterSection = () => {
                 </div>
                 <div ref={linksRef} className='w-full flex flex-col justify-between md:min-h-[192px] min-h-[154px]'>
                     <div className='w-full'>
-                        <h3 className='text-lime-green font-nichrome font-bold text-[20px] uppercase leading-18'>MORE</h3>
-                        <p className="text-lime-green font-nichrome font-normal text-[16px] mt-[19px]">Privacy Policy</p>
-                        <p className="text-lime-green font-nichrome font-normal text-[16px]">Cookie Policy</p>
+                        <h3 className='text-lime-green font-nichrome font-bold text-[20px] uppercase leading-none'>MORE</h3>
+                        <p className="text-lime-green font-general font-light text-[16px] mt-[19px]">Privacy Policy</p>
+                        <p className="text-lime-green font-general font-light text-[16px]">Cookie Policy</p>
                     </div>
                     <div className='w-full'>
-                        <p className="text-lime-green font-nichrome font-normal text-[16px]">© Momoamo - All rights reserved 2024</p>
+                        <p className="text-lime-green font-general font-light text-[16px] leading-[1.3]">© Momoamo - All rights reserved 2024</p>
                     </div>
                 </div>
 

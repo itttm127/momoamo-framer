@@ -46,7 +46,7 @@ const FAQSection = () => {
                         ))}
                     </ul>
 
-                    <button className="md:mt-[64px] mt-8uppercase text-[#EEE5D7] bg-[#292222] font-bold font-nichrome md:text-[20px] text-[18px] md:w-[152px] w-full md:h-[60px] h-[48px] flex justify-center items-center gap-2 rounded">
+                    <button className="md:mt-[64px] mt-8uppercase text-[#EEE5D7] bg-[#292222] font-bold font-nichrome text-[28px] md:w-[152px] w-full h-[60px] flex justify-center items-center">
                         Voir plus
                     </button>
                 </div>

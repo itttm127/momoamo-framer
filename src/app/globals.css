@@ -87,7 +87,7 @@ body {
 }
 
 section {
-  max-width: 1440px;
+  max-width: 1530px;
   padding-right: 8px;
   padding-left: 8px;
 }
@@ -125,6 +125,7 @@ section {
   transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
   transition-duration: 0.5s;
   transition-property: max-height;
+  margin-top: 16px;
 }
 
 .accordion-item--opened .accordion-item__content {
